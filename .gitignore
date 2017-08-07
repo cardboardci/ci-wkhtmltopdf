@@ -1,2 +1,8 @@
-# Documentation
+.DS_Store
+*.swp
+
+## Documentation images
 doc/**/images/
+
+## Test outputs
+tests/target/
