@@ -15,11 +15,11 @@ stages:
 variables:
   STAGING_REGISTRY: registry.gitlab.com
   STAGING_NAMESPACE: jrbeverly-docker
-  STAGING_PROJECT: docker-xwindow
+  STAGING_PROJECT: docker-wkhtmltopdf
 
   REGISTRY: docker.io
   NAMESPACE: jrbeverly
-  PROJECT: xwindow
+  PROJECT: wkhtmltopdf
 
   GIT_COMMIT: ${CI_COMMIT_SHA}
   TAG_PREFIX: ${CI_PIPELINE_ID}-
