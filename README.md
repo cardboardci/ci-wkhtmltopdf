@@ -72,7 +72,6 @@ Build arguments used in the image.
 | USER | see `Makefile.options` | Sets the [user](http://www.linfo.org/uid.html) to use when running the image. |
 | DUID | see [user.variable](info/Makefile.user.variable) | The [user id](http://www.linfo.org/uid.html) of the docker user. |
 | DGID | see [user.variable](info/Makefile.user.variable) | The [group id](http://www.linfo.org/uid.html) of the docker user's group. |
-| APP_URL | see [app.variable](info/Makefile.app.variable) | The URL to download the latest debian package. |
 
 ### Volumes
 
