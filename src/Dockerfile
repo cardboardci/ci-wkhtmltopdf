@@ -45,13 +45,13 @@ LABEL \
     \
     org.label-schema.name="mkhtmltopdf" \
     org.label-schema.summary="A super small image with wkhtmltopdf installed." \
-    org.label-schema.description="wkhtmltopdf and wkhtmltoimage are command line tools to render HTML into PDF and various image formats using the Qt WebKit rendering engine." \
+    org.label-schema.description="wkhtmltopdf renders HTML into PDF using the Qt WebKit rendering engine." \
     org.label-schema.maintainer="jrbeverly" \
     org.label-schema.build-date=$BUILD_DATE \
     org.label-schema.version=$VERSION \
     org.label-schema.url="https://wkhtmltopdf.org/" \
     org.label-schema.license="MIT" \
-    org.label-schema.docker.cmd="docker run -v /media/:/media/ jrbeverly/wkhtmltopdf:privileged wkhtmltopdf http://google.com google.pdf" \
+    org.label-schema.docker.cmd="docker run -v $(pwd):/media/ jrbeverly/wkhtmltopdf:privileged wkhtmltopdf http://google.com google.pdf" \
     org.label-schema.vendor="jrbeverly" \
     org.label-schema.schema-version="1.0" \
     \

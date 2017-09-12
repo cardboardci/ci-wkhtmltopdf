@@ -25,7 +25,7 @@ A super small image with [wkhtmltopdf](https://wkhtmltopdf.org/) installed.
 You can use this image locally with `docker run`, calling `wkhtmltopdf`:
 
 ```bash
-docker run -v /media/:/media/ jrbeverly/wkhtmltopdf:privileged wkhtmltopdf http://google.com google.pdf
+docker run -v $(pwd):/media/ jrbeverly/wkhtmltopdf:privileged wkhtmltopdf http://google.com google.pdf
 ```
 
 ### Gitlab
