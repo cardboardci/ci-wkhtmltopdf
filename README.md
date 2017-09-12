@@ -6,6 +6,7 @@
  * [Build Process](#build-process)
  * [Labels](#labels)
  * [User and Group Mapping](#user-and-group-mapping)
+ * [Acknowledgements](#acknowledgements)
 
 ---
 
