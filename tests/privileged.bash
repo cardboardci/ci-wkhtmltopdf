@@ -42,11 +42,11 @@ DIR_TARGET="${DIR_TESTS}/target"
     [ "$status" -eq 0 ]
 }
 
-@test "apk is disabled" {
+@test "apk is enabled" {
     run docker run --rm "${DOCKER_IMAGE_NAME}" apk add -U curl
     echo "status: $status"
     echo "output: $output"
-    [ "$status" -ne 0 ]
+    [ "$status" -eq 0 ]
 }
 
 @test "google to pdf" {
