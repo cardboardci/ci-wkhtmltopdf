@@ -1,0 +1,5 @@
+# Image
+TAG := privileged
+USER := root
+
+BUILD_PARAMS := --build-arg DUID="${DUID}" --build-arg DGID="${DGID}" --build-arg USER="${USER}"
