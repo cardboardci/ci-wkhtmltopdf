@@ -1,0 +1,101 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+# ---------------------------------------
+# Global
+# ---------------------------------------
+
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  STAGING_REGISTRY: registry.gitlab.com
+  STAGING_NAMESPACE: jrbeverly-docker
+  STAGING_PROJECT: docker-xwindow
+
+  REGISTRY: docker.io
+  NAMESPACE: jrbeverly
+  PROJECT: xwindow
+
+  GIT_COMMIT: ${CI_COMMIT_SHA}
+  TAG_PREFIX: ${CI_PIPELINE_ID}-
+
+# ----------------------------------------
+# Prescript
+# ----------------------------------------
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $STAGING_REGISTRY
+  - apk --update-cache add make
+
+# ----------------------------------------
+# Build
+# ----------------------------------------
+
+build-baseimage:
+  stage: build
+  variables:
+    VERSION: baseimage
+  script:
+    - make -C build/ build
+    - make -C build/ push
+  only:
+    - web
+
+build-privileged:
+  stage: build
+  variables:
+    VERSION: privileged
+  script:
+    - make -C build/ build
+    - make -C build/ push
+  only:
+    - web
+
+# ----------------------------------------
+# Tests
+# ----------------------------------------
+
+test-baseimage:
+  stage: test
+  variables:
+    VERSION: baseimage
+  script:
+    - make -s -C build/ pull
+    - make -s -C build/ test
+  dependencies:
+    - build-baseimage
+  only:
+    - web
+
+test-privileged:
+  stage: test
+  variables:
+    VERSION: privileged
+  script:
+    - make -s -C build/ pull
+    - make -s -C build/ test
+  dependencies:
+    - build-privileged
+  only:
+    - web
+
+# ----------------------------------------
+# Deploy
+# ----------------------------------------
+
+deploy:
+  stage: deploy
+  script:
+    - sh build/ci/pull.sh
+    - docker login -u $DOCKER_BUILD_USER -p $DOCKER_BUILD_TOKEN
+    - sh build/ci/deploy.sh
+  dependencies:
+    - test-baseimage
+    - test-privileged
+  only:
+    - web
