@@ -33,7 +33,7 @@ docker run -v $(pwd):/media/ jrbeverly/wkhtmltopdf:privileged wkhtmltopdf http:/
 You can setup a build job using `.gitlab-ci.yml`:
 
 ```yaml
-compile:
+build:
   image: jrbeverly/wkhtmltopdf:baseimage
   script:
     - wkhtmltopdf http://google.com google.pdf
