@@ -95,7 +95,7 @@ You can view the [`build/README.md`](build/README.md) for more on using the `Mak
 The docker image follows the [Label Schema Convention](http://label-schema.org). Label Schema is a community project to provide a shared namespace for use by multiple tools, specifically `org.label-schema`. The values in the namespace can be accessed by the following command:
 
 ```bash
-docker inspect -f '{{ index .Config.Labels "org.label-schema.<LABEL>" }}' jrbeverly/wkhtmltopdf
+docker inspect -f '{{ index .Config.Labels "org.label-schema.<LABEL>" }}' jrbeverly/wkhtmltopdf:<TAG>
 ```
 
 ### Label Extension
@@ -103,7 +103,7 @@ docker inspect -f '{{ index .Config.Labels "org.label-schema.<LABEL>" }}' jrbeve
 The label namespace `org.doc-schema` is an extension of `org.label-schema`. The namespace stores internal variables often used when interacting with the image. These variables will often be application versions or exposed internal variables. The values in the namespace can be accessed by the following command:
 
 ```bash
-docker inspect -f '{{ index .Config.Labels "org.doc-schema.<LABEL>" }}' jrbeverly/wkhtmltopdf
+docker inspect -f '{{ index .Config.Labels "org.doc-schema.<LABEL>" }}' jrbeverly/wkhtmltopdf:<TAG>
 ```
 
 ## User and Group Mapping
