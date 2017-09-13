@@ -6,6 +6,7 @@
  * [Build Process](#build-process)
  * [Labels](#labels)
  * [User and Group Mapping](#user-and-group-mapping)
+ * [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -25,7 +26,7 @@ A super small image with [wkhtmltopdf](https://wkhtmltopdf.org/) installed.
 You can use this image locally with `docker run`, calling `wkhtmltopdf`:
 
 ```bash
-docker run -v /media/:/media/ jrbeverly/wkhtmltopdf:privileged wkhtmltopdf http://google.com google.pdf
+docker run -v $(pwd):/media/ jrbeverly/wkhtmltopdf:privileged wkhtmltopdf http://google.com google.pdf
 ```
 
 ### Gitlab
@@ -33,7 +34,7 @@ docker run -v /media/:/media/ jrbeverly/wkhtmltopdf:privileged wkhtmltopdf http:
 You can setup a build job using `.gitlab-ci.yml`:
 
 ```yaml
-compile:
+build:
   image: jrbeverly/wkhtmltopdf:baseimage
   script:
     - wkhtmltopdf http://google.com google.pdf
@@ -72,7 +73,6 @@ Build arguments used in the image.
 | USER | see `Makefile.options` | Sets the [user](http://www.linfo.org/uid.html) to use when running the image. |
 | DUID | see [user.variable](info/Makefile.user.variable) | The [user id](http://www.linfo.org/uid.html) of the docker user. |
 | DGID | see [user.variable](info/Makefile.user.variable) | The [group id](http://www.linfo.org/uid.html) of the docker user's group. |
-| APP_URL | see [app.variable](info/Makefile.app.variable) | The URL to download the latest debian package. |
 
 ### Volumes
 
@@ -95,7 +95,7 @@ You can view the [`build/README.md`](build/README.md) for more on using the `Mak
 The docker image follows the [Label Schema Convention](http://label-schema.org). Label Schema is a community project to provide a shared namespace for use by multiple tools, specifically `org.label-schema`. The values in the namespace can be accessed by the following command:
 
 ```bash
-docker inspect -f '{{ index .Config.Labels "org.label-schema.<LABEL>" }}' jrbeverly/wkhtmltopdf
+docker inspect -f '{{ index .Config.Labels "org.label-schema.<LABEL>" }}' jrbeverly/wkhtmltopdf:<TAG>
 ```
 
 ### Label Extension
@@ -103,7 +103,7 @@ docker inspect -f '{{ index .Config.Labels "org.label-schema.<LABEL>" }}' jrbeve
 The label namespace `org.doc-schema` is an extension of `org.label-schema`. The namespace stores internal variables often used when interacting with the image. These variables will often be application versions or exposed internal variables. The values in the namespace can be accessed by the following command:
 
 ```bash
-docker inspect -f '{{ index .Config.Labels "org.doc-schema.<LABEL>" }}' jrbeverly/wkhtmltopdf
+docker inspect -f '{{ index .Config.Labels "org.doc-schema.<LABEL>" }}' jrbeverly/wkhtmltopdf:<TAG>
 ```
 
 ## User and Group Mapping
