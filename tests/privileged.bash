@@ -18,6 +18,7 @@ DIR_TARGET="${DIR_TESTS}/target"
     echo "output: $output"
     [ "$output" == "0" ]
 }
+
 @test "wkhtmltopdf is installed" {
 	run docker run --rm --entrypoint sh "${DOCKER_IMAGE_NAME}" -c "which wkhtmltopdf"
     echo "status: $status"
