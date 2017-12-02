@@ -1,7 +1,0 @@
-build:
-  image: jrbeverly/wkhtmltopdf:baseimage
-  script:
-    - wkhtmltopdf http://google.com google.pdf
-  artifacts:
-    paths:
-      - google.pdf
