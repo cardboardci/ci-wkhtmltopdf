@@ -12,14 +12,9 @@
 
 ## Summary
 
-A super small image with [wkhtmltopdf](https://wkhtmltopdf.org/) installed. 
+A super small image with [wkhtmltopdf](https://wkhtmltopdf.org/) installed.
 
-## Image
-
-[![Image][image-badge]][image-link]
-[![License][license-badge]][license-link]
-[![Build][build-badge]][build-link]
-[![Docker][docker-badge]][docker-link]
+**NOTE: This image is marked EOL, and use is discouraged.**
 
 ## Usage
 
