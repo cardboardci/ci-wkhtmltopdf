@@ -2,7 +2,7 @@
 
 ## Summary
 
-A super small image with [wkhtmltopdf](https://wkhtmltopdf.org/) installed.
+A super small image with [wkhtmltopdf](https://wkhtmltopdf.org/) installed. The project icon is from [cre.ativo mustard, HK from the Noun Project](docs/icon/icon.json)
 
 **NOTE: This image is marked EOL, and use is discouraged.**
 
