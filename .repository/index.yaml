@@ -1,0 +1,20 @@
+slug: ci-wkhtmltopdf
+description: '[DEPRECATED] A super small image with wkhtmltopdf installed.'
+project: cardboardci
+namespace: ci
+status: archived
+icon: icon.svg
+license:
+  type: MIT
+  content: Jonathan Beverly <jrbeverly>
+  year: 2017
+topics: |-
+  [
+    "docker",
+    "docker-ci-images",
+    "ci",
+    "docker-image",
+    "wkhtmltopdf",
+    "html",
+    "pdf"
+  ]
